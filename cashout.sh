@@ -1,4 +1,4 @@
-#1/usr/bin/env sh
+#!/usr/bin/env sh
 DEBUG_API=http://localhost:1635
 MIN_AMOUNT=1000
 
