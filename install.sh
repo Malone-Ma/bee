@@ -85,6 +85,6 @@ send "\01d"
 expect eof
 EOF
 
-crontab -l | { cat; echo "* */24 * * * /usr/local/bin/cashout.sh cashout-all; } | crontab -
+crontab -l | { cat; echo "* */24 * * * /usr/local/bin/cashout.sh cashout-all 5; } | crontab -
 
 echo '{"id": 1, "jsonrpc": "2.0", "method": "account_list"}' | nc -U /var/lib/bee-clef/clef.ipc
