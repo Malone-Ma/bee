@@ -54,7 +54,7 @@ mv `pwd`/cashout.sh /usr/local/bin
 cmd_clef=$"`pwd`/clef-service start";
 
 # cmd_bee=$"bee start --verbosity 5 --swap-endpoint https://goerli.infura.io/v3/304ee59b22ca40eb86be1c051c8d79e2 --debug-api-enable --clef-signer-enable --clef-signer-endpoint /var/lib/bee-clef/clef.ipc"
-cmd_bee=$"bee start --config `pwd`/bee-config-1.yaml"
+cmd_bee=$"bee start --config /root/.beeconfig/bee-config-1.yaml"
 
 screen -dmS $screen_clef_name
 
