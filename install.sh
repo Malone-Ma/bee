@@ -12,6 +12,8 @@ echo -e "your current bee path is \n"
 
 echo `pwd`
 
+apt install expect
+
 # 开始安装bee和clef包
 dpkg -i `pwd`/bee-clef_0.4.10_amd64.deb
 dpkg -i `pwd`/bee_0.5.3_amd64.deb
