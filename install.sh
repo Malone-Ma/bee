@@ -27,9 +27,11 @@ echo `pwd`
 
 echo -e "start change config file... \n"
 
-sed -i "s/v_db/${v_db}/g" `pwd`/bee-config-default.yaml
-sed -i "s/v_end/${v_end}/g" `pwd`/bee-config-default.yaml
-sed -i "s/v_clef/${v_clef}/g" `pwd`/bee-config-default.yaml
+cp `pwd`/bee-config-default.yaml `pwd`/bee-config-1.yaml
+
+sed -i "s/v_db/${v_db}/g" `pwd`/bee-config-1.yaml
+sed -i "s/v_end/${v_end}/g" `pwd`/bee-config-1.yaml
+sed -i "s/v_clef/${v_clef}/g" `pwd`/bee-config-1.yaml
 
 echo -e "have changed config file... \n"
 
@@ -48,7 +50,7 @@ chmod +x `pwd`/clef-service
 cmd_clef=$"`pwd`/clef-service start";
 
 # cmd_bee=$"bee start --verbosity 5 --swap-endpoint https://goerli.infura.io/v3/304ee59b22ca40eb86be1c051c8d79e2 --debug-api-enable --clef-signer-enable --clef-signer-endpoint /var/lib/bee-clef/clef.ipc"
-cmd_bee=$"bee start --config /etc/bee/bee.yaml"
+cmd_bee=$"bee start --config `pwd`/bee-config-1.yaml"
 
 screen -dmS $screen_clef_name
 
