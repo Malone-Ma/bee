@@ -7,7 +7,7 @@
 ## cause the node to always accept incoming connections
 # bootnode-mode: false
 ## enable clef signer
-clef-signer-enable: true
+clef-signer-enable: v_clef
 ## clef signer endpoint
 clef-signer-endpoint: /var/lib/bee-clef/clef.ipc
 ## config file (default is /home/<user>/.bee.yaml)
@@ -17,7 +17,7 @@ config: /etc/bee/bee.yaml
 ## data directory (default "/home/<user>/.bee")
 data-dir: /var/lib/bee
 ## db capacity in chunks, multiply by 4096 to get approximate capacity in bytes
-db-capacity: {db-capacity}
+db-capacity: v_db
 ## number of open files allowed by database
 # db-open-files-limit: 200
 ## size of block cache of the database in bytes
@@ -61,7 +61,7 @@ password-file: /var/lib/bee/password
 ## enable swap (default true)
 # swap-enable: true
 ## swap ethereum blockchain endpoint (default "http://localhost:8545")
-swap-endpoint: https://goerli.infura.io/v3/{swap-endpoint}
+swap-endpoint: https://goerli.infura.io/v3/v_end
 ## swap factory address
 # swap-factory-address: ""
 ## initial deposit if deploying a new chequebook (default 100000000000000000)
