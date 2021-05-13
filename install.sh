@@ -5,11 +5,13 @@
 ## c) 是否启用clef
 ## p) password
 
+apt update && apt install expect jq
 
 #set接受参数
 v_db="30000000"
 v_end="304ee59b22ca40eb86be1c051c8d79e2"
 v_clef="true"
+v_password="beebeebee"
 
 #接收可选参数
 while getopts :d:e:c:p: opt
@@ -40,9 +42,6 @@ echo -e "have changed config file... \n"
 
 screen_clef_name=$"clef"
 screen_bee_name=$"bee"
-passwd=$"passwd"
-
-apt update && apt install expect jq
 
 # 开始安装bee和clef包
 dpkg -i `pwd`/bee-clef_0.4.10_amd64.deb
