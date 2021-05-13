@@ -21,15 +21,21 @@ do
   esac
 done
 
+echo -e "let's start the bee programe... \n"
+echo -e "your current bee path is "
+echo `pwd`
+
+echo -e "start change config file... \n"
+
+sed -i "s/v_db/${v_db}/g" `pwd`/bee-config.yaml
+sed -i "s/v_end/${v_end}/g" `pwd`/bee-config.yaml
+sed -i "s/v_clef/${v_clef}/g" `pwd`/bee-config.yaml
+
+echo -e "have changed config file... \n"
 
 screen_clef_name=$"clef"
 screen_bee_name=$"bee"
 passwd=$"passwd"
-
-echo -e "let's start the bee programe... \n"
-echo -e "your current bee path is \n"
-
-echo `pwd`
 
 apt update && apt install expect jq
 
