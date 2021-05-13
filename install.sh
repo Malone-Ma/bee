@@ -13,6 +13,7 @@ echo -e "your current bee path is \n"
 echo `pwd`
 
 apt install expect
+apt install jq
 
 # 开始安装bee和clef包
 dpkg -i `pwd`/bee-clef_0.4.10_amd64.deb
