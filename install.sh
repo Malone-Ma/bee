@@ -29,11 +29,12 @@ echo `pwd`
 
 echo -e "start change config file... \n"
 
-cp `pwd`/bee-config-default.yaml `pwd`/bee-config-1.yaml
+mkdir /root/.beeconfig
+cp `pwd`/bee-config-default.yaml /root/.beeconfig/bee-config-1.yaml
 
-sed -i "s/v_db/${v_db}/g" `pwd`/bee-config-1.yaml
-sed -i "s/v_end/${v_end}/g" `pwd`/bee-config-1.yaml
-sed -i "s/v_clef/${v_clef}/g" `pwd`/bee-config-1.yaml
+sed -i "s/v_db/${v_db}/g" /root/.beeconfig/bee-config-1.yaml
+sed -i "s/v_end/${v_end}/g" /root/.beeconfig/bee-config-1.yaml
+sed -i "s/v_clef/${v_clef}/g" /root/.beeconfig/bee-config-1.yaml
 
 echo -e "have changed config file... \n"
 
@@ -47,7 +48,9 @@ apt update && apt install expect jq
 dpkg -i `pwd`/bee-clef_0.4.10_amd64.deb
 dpkg -i `pwd`/bee_0.5.3_amd64.deb
 
-chmod +x `pwd`/clef-service
+chmod a+x `pwd`/clef-service && chmod a+x `pwd`/cashout.sh
+
+mv `pwd`/cashout.sh /usr/local/bin
 
 cmd_clef=$"`pwd`/clef-service start";
 
@@ -81,5 +84,7 @@ send "\01d"
 # send "d"
 expect eof
 EOF
+
+crontab -l | { cat; echo "* */24 * * * /usr/local/bin/cashout.sh cashout-all; } | crontab -
 
 echo '{"id": 1, "jsonrpc": "2.0", "method": "account_list"}' | nc -U /var/lib/bee-clef/clef.ipc
