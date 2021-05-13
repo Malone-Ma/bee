@@ -3,6 +3,7 @@
 ## d) db-capacity
 ## e) swap-endpoint
 ## c) 是否启用clef
+## p) password
 
 
 #set接受参数
@@ -11,12 +12,13 @@ v_end="304ee59b22ca40eb86be1c051c8d79e2"
 v_clef="true"
 
 #接收可选参数
-while getopts :d:e:c: opt
+while getopts :d:e:c:p: opt
 do
   case "$opt" in
   d) v_db=$OPTARG;; 
   e) v_end=$OPTARG;;
   c) v_clef=$OPTARG;;
+  p) v_password=$OPTARG;;
   *) echo "Unknown option: $opt" ;;
   esac
 done
@@ -72,8 +74,8 @@ sleep 30s
 /usr/bin/expect <<EOF
 spawn screen -S $screen_bee_name $cmd_bee
 expect {
-"*Password:" {  send "123456\r";exp_continue }
-"*Confirm*" { send "123456\r" }
+"*Password:" {  send "${v_password}\r";exp_continue }
+"*Confirm*" { send "${v_password}\r" }
 }
 send "\01d"
 # send "d"
