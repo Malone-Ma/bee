@@ -12,6 +12,7 @@ echo -e "your current bee path is \n"
 
 echo `pwd`
 
+apt update
 apt install expect
 apt install jq
 
