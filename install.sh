@@ -27,9 +27,9 @@ echo `pwd`
 
 echo -e "start change config file... \n"
 
-sed -i "s/v_db/${v_db}/g" `pwd`/bee-config.yaml
-sed -i "s/v_end/${v_end}/g" `pwd`/bee-config.yaml
-sed -i "s/v_clef/${v_clef}/g" `pwd`/bee-config.yaml
+sed -i "s/v_db/${v_db}/g" `pwd`/bee-config-default.yaml
+sed -i "s/v_end/${v_end}/g" `pwd`/bee-config-default.yaml
+sed -i "s/v_clef/${v_clef}/g" `pwd`/bee-config-default.yaml
 
 echo -e "have changed config file... \n"
 
