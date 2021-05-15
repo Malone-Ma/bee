@@ -65,20 +65,19 @@ expect eof
 EOF
 
 sleep 30s
-
+echo -e "start screen bee... \n"
 
 # screen -dmS $screen_bee_name
 # screen -x -S $screen_bee_name -p 0 -X stuff "$cmd_bee"
 # screen -x -S $screen_bee_name -p 0 -X stuff "\n"
 
 /usr/bin/expect <<EOF
-spawn screen -S $screen_bee_name $cmd_bee
+spawn screen -S ${screen_bee_name} ${cmd_bee}
 expect {
 "*Password:" {  send "${v_password}\r";exp_continue }
 "*Confirm*" { send "${v_password}\r" }
 }
 send "\01d"
-# send "d"
 expect eof
 EOF
 
