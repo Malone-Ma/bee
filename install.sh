@@ -25,6 +25,8 @@ do
   esac
 done
 
+export TERM=vt100
+
 echo -e "let's start the bee programe... \n"
 
 echo -e "start change config file... \n"
