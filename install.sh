@@ -26,13 +26,11 @@ do
 done
 
 echo -e "let's start the bee programe... \n"
-echo -e "your current bee path is "
-echo `pwd`
 
 echo -e "start change config file... \n"
 
 mkdir /root/.beeconfig
-cp `pwd`/bee-config-default.yaml /root/.beeconfig/bee-config-1.yaml
+cp /root/bee/bee-config-default.yaml /root/.beeconfig/bee-config-1.yaml
 
 sed -i "s/v_db/${v_db}/g" /root/.beeconfig/bee-config-1.yaml
 sed -i "s/v_end/${v_end}/g" /root/.beeconfig/bee-config-1.yaml
@@ -44,14 +42,14 @@ screen_clef_name=$"clef"
 screen_bee_name=$"bee"
 
 # 开始安装bee和clef包
-dpkg -i `pwd`/bee-clef_0.4.10_amd64.deb
-dpkg -i `pwd`/bee_0.5.3_amd64.deb
+dpkg -i /root/bee/bee-clef_0.4.10_amd64.deb
+dpkg -i /root/bee/bee_0.5.3_amd64.deb
 
-chmod a+x `pwd`/clef-service && chmod a+x `pwd`/cashout.sh
+chmod a+x /root/bee/clef-service && chmod a+x /root/bee/cashout.sh
 
-mv `pwd`/cashout.sh /usr/local/bin
+mv /root/bee/cashout.sh /usr/local/bin
 
-cmd_clef=$"`pwd`/clef-service start";
+cmd_clef=$"/root/bee/clef-service start";
 
 # cmd_bee=$"bee start --verbosity 5 --swap-endpoint https://goerli.infura.io/v3/304ee59b22ca40eb86be1c051c8d79e2 --debug-api-enable --clef-signer-enable --clef-signer-endpoint /var/lib/bee-clef/clef.ipc"
 cmd_bee=$"bee start --config /root/.beeconfig/bee-config-1.yaml"
