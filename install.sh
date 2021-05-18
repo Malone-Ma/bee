@@ -9,7 +9,7 @@ apt update && apt install expect jq
 
 #set接受参数
 v_db="30000000"
-v_end="304ee59b22ca40eb86be1c051c8d79e2"
+v_end="62b10e04e0704e6f96716853ed7f9a18"
 v_clef="true"
 v_password="beebeebee"
 
@@ -79,7 +79,7 @@ expect {
 "*Password:" {  send "${v_password}\r";exp_continue }
 "*Confirm*" { send "${v_password}\r" }
 }
-send "\01d"
+send "\x03"
 expect eof
 EOF
 
