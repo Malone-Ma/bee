@@ -49,7 +49,7 @@ dpkg -i /root/bee/bee_0.5.3_amd64.deb
 
 chmod a+x /root/bee/clef-service && chmod a+x /root/bee/cashout.sh
 
-mv /root/bee/cashout.sh /usr/local/bin
+cp /root/bee/cashout.sh /usr/local/bin
 
 cmd_clef=$"/root/bee/clef-service start";
 
