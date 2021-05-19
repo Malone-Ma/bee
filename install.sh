@@ -9,7 +9,7 @@ apt update && apt install expect jq
 
 #set接受参数
 v_db="30000000"
-v_end="62b10e04e0704e6f96716853ed7f9a18"
+v_end="00bcdc8d8d394425a9bb63267a0d1de8"
 v_clef="true"
 v_password="beebeebee"
 
